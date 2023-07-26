@@ -53,21 +53,40 @@ function App() {
   }
 
   return (
-    <div className="App w-3/4 items-center">
-        <h1 className="text-4xl text-center">Game Tracker</h1>
-        <input type="text" name="game" value={gameToAdd} onChange={handleChange} onKeyPress={handleKeyPress} className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-3/4"/>
-        <button onClick={searchGames} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Search</button>
-        <ResultsList results={results} section={section} addGame={addGame}/>
-        <br/>
-        <button name="wishlist" onClick={changeSection}>Wishlist</button>
-        <button name="playing" onClick={changeSection}>Playing</button>
-        <button name="completed" onClick={changeSection}>Completed</button>
-        {section === 'wishlist' ? <Wishlist wishlistGames={allGames.wishlist}/>
-        : section === 'playing' ? <Playing playingGames={allGames.playing}/>
-        : section === 'completed' ? <Completed completedGames={allGames.completed}/>
-        : <div></div> }
+    <div className="App w-3/4">
+      <h1 className="text-4xl text-center">Game Tracker</h1>
+      <input type="text" name="game" value={gameToAdd} onChange={handleChange} onKeyPress={handleKeyPress} className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-3/4 flex-auto"/>
+      <button onClick={searchGames} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Search</button>
+      <ResultsList results={results} section={section} addGame={addGame}/>
+      <br/>
+      
+      <div className="flex flex-wrap justify-center">
+        <button name="wishlist" onClick={changeSection} className="hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 rounded-tl grow" style={section === 'wishlist' ? selectedStyle : null}>Wishlist</button>
+        <button name="playing" onClick={changeSection} className="hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 grow" style={section === 'playing' ? selectedStyle : null}>Playing</button>
+        <button name="completed" onClick={changeSection} className="hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 rounded-tr grow" style={section === 'completed' ? selectedStyle : null}>Completed</button>
+      </div>
+      <div style={selectedStyle}>
+        
+      {section === 'wishlist' ? <Wishlist wishlistGames={allGames.wishlist}/>
+      : section === 'playing' ? <Playing playingGames={allGames.playing}/>
+      : section === 'completed' ? <Completed completedGames={allGames.completed}/>
+      : <div></div> }
+      
+      </div>
     </div>
   );
 }
 
 export default App;
+
+
+const selectedStyle = {
+  backgroundColor: 'rgb(31 41 55)'
+}
+
+const unselectedStyle = {
+  backgroundColor: 'red',
+  hover: {
+    backgroundColor: 'green'
+  }
+}
