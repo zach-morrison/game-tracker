@@ -37,7 +37,7 @@ function Completed({completedGames, removeGame}) {
               <td className="text-center">{game.metacritic || 'N/A'}</td>
               <td className="text-center">{game.playtime}</td>
               <td className="text-center">{createPlatformString(game.platforms)}</td>
-              <td className="text-center"><button onClick={() => removeGame(game.name, 'wishlist')} className="font-bold text-red-600">X</button></td>
+              <td className="text-center"><button onClick={() => removeGame(game.name, 'completed')} className="font-bold text-red-600">X</button></td>
             </tr>
           )
         })}
