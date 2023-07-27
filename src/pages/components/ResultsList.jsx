@@ -32,14 +32,14 @@ function ResultsList({results, section, addGame}) {
     <div className="text-center">
       
       <div className="max-h-64 overflow-scroll p-2">
-        {shownObj.shown && results.map((game, i) => <div key={i} className="flex justify-between p-2 border-b-2 border-sky-800">
+        {results && shownObj.shown && results.map((game, i) => <div key={i} className="flex justify-between p-2 border-b-2 border-sky-800">
         <img src={game.background_image} alt="Game Cover Art" width={'128px'}/>
           <div className="flex items-center text-2xl">{game.name}</div>
           <button onClick={() => selectGame(game)}>Add to {section}</button>
           </div>)}
       </div>
       <div className="py-2">
-      {results.length > 0 && <button onClick={handleClick} className="justify-center bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded">{shownObj.buttonText} results</button>}
+      {results && results.length > 0 && <button onClick={handleClick} className="justify-center bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded">{shownObj.buttonText} results</button>}
       </div>
     </div>
   )

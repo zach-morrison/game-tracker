@@ -29,7 +29,7 @@ function Completed({completedGames, removeGame}) {
         </tr>
         </thead>
         <tbody>
-        {completedGames.length > 0 && completedGames.map((game, i) => {
+        {completedGames && completedGames.length > 0 && completedGames.map((game, i) => {
           return (
             <tr key={i}  className="border-y-2 border-gray-800">
               <td className="p-4">{game.name}</td>
@@ -43,7 +43,7 @@ function Completed({completedGames, removeGame}) {
         })}
         </tbody>
       </table>
-      {completedGames.length < 1 && <div className="text-center">No games to display.</div>}
+      {completedGames && completedGames.length < 1 && <div className="text-center">No games to display.</div>}
     </div>
   )
 }

@@ -2,8 +2,6 @@ import React from 'react';
 
 function Wishlist({wishlistGames, removeGame}) {
 
-
-  console.log('wishlist games:', wishlistGames);
   
   const createPlatformString = (platforms) => {
     //console.log('platform object: ', platforms);
@@ -29,7 +27,7 @@ function Wishlist({wishlistGames, removeGame}) {
         </tr>
         </thead>
         <tbody>
-        {wishlistGames.length > 0 && wishlistGames.map((game, i) => {
+        {wishlistGames && wishlistGames.length > 0 && wishlistGames.map((game, i) => {
           return (
             <tr key={i}  className="border-y-2 border-gray-800">
               <td className="p-4">{game.name}</td>
@@ -43,7 +41,7 @@ function Wishlist({wishlistGames, removeGame}) {
         })}
         </tbody>
       </table>
-      {wishlistGames.length < 1 && <div className="text-center">No games to display.</div>}
+      {wishlistGames && wishlistGames.length < 1 && <div className="text-center">No games to display.</div>}
     </div>
   )
 }

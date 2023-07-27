@@ -29,7 +29,7 @@ function Playing({playingGames, removeGame}) {
         </tr>
         </thead>
         <tbody>
-        {playingGames.length > 0 && playingGames.map((game, i) => {
+        {playingGames && playingGames.length > 0 && playingGames.map((game, i) => {
           return (
             <tr key={i}  className="border-y-2 border-gray-800">
               <td className="p-4">{game.name}</td>
@@ -43,7 +43,7 @@ function Playing({playingGames, removeGame}) {
         })}
         </tbody>
       </table>
-      {playingGames.length < 1 && <div className="text-center">No games to display.</div>}
+      {playingGames && playingGames.length < 1 && <div className="text-center">No games to display.</div>}
     </div>
   )
 }
