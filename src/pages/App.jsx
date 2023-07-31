@@ -50,6 +50,7 @@ function App() {
   const searchGames = () => {
     axios.post('/api/searchGames', {name: gameToAdd})
     .then((response) => {
+      response.data[4].background_image = '';
       setResults(response.data);
       console.log('list below:');
       console.log(response.data);
