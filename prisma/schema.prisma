@@ -1,0 +1,23 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["jsonProtocol"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Game {
+  id         String    @default(cuid()) @id
+  name       String
+  playtime   Int
+  metacritic Int
+  Rating     Int
+  Year       String
+  Platforms  String[]
+  Section    String
+}

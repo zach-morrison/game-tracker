@@ -70,8 +70,20 @@ function App() {
     setSection(e.target.name);
   }
   
+  const getGamesFromDB = () => {
+    axios.post('/api/getGames')
+    .then((response) => {
+      console.log('games found: ', response.data);
+    })
+  }
+  
+  useEffect (() => {
+    console.log('page loaded');
+  }, []);
+  
   return (
     <div className="App w-3/4">
+      {/* <button onClick={getGamesFromDB}>Query DB</button> */}
       <h1 className="text-5xl text-center pb-3">Game Tracker</h1>
       <div className="text-center pt-2">Search for a game below to add it to your tracker.</div>
       <div className="flex items-center px-32 py-4">

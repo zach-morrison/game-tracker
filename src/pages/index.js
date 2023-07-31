@@ -6,9 +6,14 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
+    <main className="flex flex-col min-h-screen justify-between">
+      <div className={`flex flex-col items-center ${inter.className} p-24`}
     >
       <App />
+      </div>
+      <div className={'flex flex-col items-end justify-between'}>
+        <img src="meatball.png" alt="Meatball Man" width="128" height="128" style={{opacity:"0.4"}}/>
+      </div>
     </main>
   )
 }
