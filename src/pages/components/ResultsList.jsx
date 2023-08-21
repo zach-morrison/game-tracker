@@ -33,7 +33,7 @@ function ResultsList({results, section, addGame}) {
       
       <div className="max-h-64 overflow-scroll p-2">
         {results && shownObj.shown && results.map((game, i) => <div key={i} className="flex justify-between p-2 border-b-2 border-sky-800">
-        <img src={game.background_image || "meatball.png"} alt="Game Cover Art" width={'128px'}/>
+        <img className="rounded" src={game.background_image} alt="Game Cover Art" width={'128px'}/>
           <div className="flex items-center text-2xl">{game.name}</div>
           <button onClick={() => selectGame(game)}>Add to {section}</button>
           </div>)}

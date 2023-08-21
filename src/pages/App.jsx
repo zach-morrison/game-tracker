@@ -50,7 +50,6 @@ function App() {
   const searchGames = () => {
     axios.post('/api/searchGames', {name: gameToAdd})
     .then((response) => {
-      response.data[4].background_image = '';
       setResults(response.data);
       console.log('list below:');
       console.log(response.data);
@@ -95,9 +94,9 @@ function App() {
       <br/>
       
       <div className="flex flex-wrap justify-center">
-        <button name="wishlist" onClick={changeSection} className="hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 rounded-tl grow" style={section === 'wishlist' ? selectedStyle : null}>Wishlist</button>
-        <button name="playing" onClick={changeSection} className="hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 grow" style={section === 'playing' ? selectedStyle : null}>Playing</button>
-        <button name="completed" onClick={changeSection} className="hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 rounded-tr grow" style={section === 'completed' ? selectedStyle : null}>Completed</button>
+        <button name="wishlist" onClick={changeSection} className="hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 rounded-tl grow text-xl" style={section === 'wishlist' ? selectedStyle : null}>Wishlist</button>
+        <button name="playing" onClick={changeSection} className="hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 grow text-xl" style={section === 'playing' ? selectedStyle : null}>Playing</button>
+        <button name="completed" onClick={changeSection} className="hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 rounded-tr grow text-xl" style={section === 'completed' ? selectedStyle : null}>Completed</button>
       </div>
       <div>
       {section === 'wishlist' ? <Wishlist wishlistGames={allGames.wishlist} removeGame={removeGame}/>
